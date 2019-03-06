@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -46,4 +47,19 @@ func (d deck) savetoFile(filename string) error {
 	//write file is a funtion in the package ioutil which writes the data of pur program to harddsk
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 	//0666 ->permision that anyone can use this file
+}
+
+//extract the deck from local storage
+func newDeckFromFile(filename string) deck {
+	bs, err := ioutil.ReadFile(filename)
+	if err != nil {
+		//log the error amd quite the program
+		fmt.Println("error:", err)
+		//to quite the program use a lib os
+		os.Exit(1)
+	}
+	//type conversion from slice of string to actual deck
+	s := strings.Split(string(bs), ",")
+	return deck(s)
+	// type conversion what_we_want(what_we_have)
 }
