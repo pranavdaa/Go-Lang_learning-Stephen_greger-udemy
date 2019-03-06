@@ -1,8 +1,6 @@
 // package is a collection of common sourse code files
 package main
 
-import "fmt"
-
 func main() {
 	// // this is a 1 way of declaring a variable that is statically
 	// // var card string = "ace of spade"
@@ -23,6 +21,6 @@ func main() {
 
 	// func newCard() string {
 	// 	return "Five of Dimonds"
-	fmt.Println(cards.toString())
-
+	//fmt.Println(cards.toString())
+	cards.savetoFile("my_cards")
 }

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -39,4 +40,10 @@ func deal(d deck, handSize int) (deck, deck) {
 func (d deck) toString() string {
 	// using the strings package to make slice of strings to a single string
 	return strings.Join([]string(d), ",")
+}
+
+func (d deck) savetoFile(filename string) error {
+	//write file is a funtion in the package ioutil which writes the data of pur program to harddsk
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
+	//0666 ->permision that anyone can use this file
 }
