@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // custome method to deck
 type deck []string
@@ -29,4 +32,11 @@ func (d deck) print() {
 //this is how u make two grps from the deck of cards
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+// to convert our data to byte slice
+//Step One -> convert deck to slice of strings and then to a single string
+func (d deck) toString() string {
+	// using the strings package to make slice of strings to a single string
+	return strings.Join([]string(d), ",")
 }
