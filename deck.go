@@ -25,3 +25,8 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+//this is how u make two grps from the deck of cards
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
+}

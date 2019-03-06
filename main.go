@@ -13,8 +13,10 @@ func main() {
 	//cards := deck{"Ace of Dimonds", newCard()}
 	//cards = append(cards, "Six of Spade")
 	cards := newDeck()
-	cards.print()
-
+	//cards.print()
+	hand, remainingCards := deal(cards, 5)
+	hand.print()
+	remainingCards.print()
 }
 
 func newCard() string {
