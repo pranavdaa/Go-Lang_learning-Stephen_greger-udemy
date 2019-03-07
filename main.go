@@ -23,8 +23,11 @@ func main() {
 	// 	return "Five of Dimonds"
 	//fmt.Println(cards.toString())
 	//cards.savetoFile("my_cards")
-	cards := newDeckFromFile("my_cards")
+	// cards := newDeckFromFile("my_cards")
 
+	// cards.print()
+
+	cards := newDeck()
+	cards.shuffle()
 	cards.print()
-
 }
